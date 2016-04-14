@@ -68,28 +68,25 @@ function doWhenOnline(){
 </script>
 </head>
 <body onload="onLoad()">
-<div class="bar bar-header bar-light">
-<h1 class="title">Device Information</h1>
-</div>
-<br/><br/>
-<ul class="list list-inset">
-<div class="item">
-Cordova Version <p id="cordovaVersion" class="item-note"></p>
-</div>
-<div class="item">
-Phone Model <p id="phoneModel" class="item-note"></p>
-</div>
-<div class="item">
-Platform <p id="phonePlatform" class="item-note"></p>
-</div>
-<div class="item">
-UUID <p id="phoneUUID" class="item-note"></p>
-</div>
-<div class="item">
-OS Version <p id="osVersion" class="item-note"></p>
-</div>
-<div id="blanker"></div>
-<div id="offline-screen"></div>	
-</ul>
+<script type="text/javascript">
+			function getMyUi(myDeviceToken){
+				if(flag){
+					if ( device.platform == 'android' || device.platform == 'Android'){
+						console.log('http://app.pradict.com/index.php?id=1&devType=2&devId='+myDeviceToken);
+						document.getElementById('container-frame').src = 'http://app.pradict.com/index.php?id=1&devType=2&devId='+myDeviceToken;//for android
+						alert(myDeviceToken);
+					}
+					else
+						{
+						document.getElementById('container-frame').src = 'http://app.pradict.com/index.php?id=1&devType=1&devId='+myDeviceToken;//for ios
+						}
+					
+
+					flag = false;
+				}
+			}	
+			
+			
+</script>			
 </body>
 </html>
